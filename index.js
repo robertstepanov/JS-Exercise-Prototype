@@ -46,6 +46,8 @@ function Person(name, age) {
 Person.prototype.eat = function(food) {
   if (this.stomach.length <= 10) {
     return this.stomach.push(food);
+  }else {
+    
   }
 };
 
@@ -53,13 +55,10 @@ Person.prototype.poop = function() {
   return (this.stomach.length = 0);
 };
 
-const newPerson = new Person({
-  name: "Mary",
-  age: 50,
-  speak: function() {
-    return `My name is ${this.name} and I am ${this.age} years old`;
-  }
-});
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
+};
+
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -82,9 +81,8 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons) {
-  this.tank + gallons;
+  this.tank += gallons;
 };
-
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -95,9 +93,13 @@ Car.prototype.fill = function(gallons) {
 function Baby(name, age, favoriteToy) {
   this.name = name;
   this.age = age;
-  this.fovoriteToy = favoriteToy;
+  this.favoriteToy = favoriteToy;
 }
 
+Baby.prototype.play = function(favoriteToy) {
+  return `Playing with ${this.favoriteToy}`;
+};
+  
 /* 
   TASK 4
 
