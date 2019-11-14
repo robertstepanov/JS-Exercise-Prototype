@@ -46,8 +46,7 @@ function Person(name, age) {
 Person.prototype.eat = function(food) {
   if (this.stomach.length <= 10) {
     return this.stomach.push(food);
-  }else {
-    
+  } else {
   }
 };
 
@@ -99,15 +98,23 @@ function Baby(name, age, favoriteToy) {
 Baby.prototype.play = function(favoriteToy) {
   return `Playing with ${this.favoriteToy}`;
 };
-  
+
+// ------------  TROUBLE WITH INHERITANCE  --------------->
+
+// function Baby(babyAttributes) {
+//   Person.call(this, babyAttributes);
+//   this.isBaby = babyAttributes.isChild;
+// }
+// Child.prototype = Object.create(Person.prototype);
+
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global Binding - it applies to everything in the 'Window'
+  2. Implicit Binding - whatever is left of the dot in front of an object is what this is referring to.
+  3. Explicit Binding - refers to when an apply, call or bind method is created.
+  4. New Binding - used in constructors to refer to objects specifically instanced when they are created.
 */
 
 ///////// END OF CHALLENGE /////////
