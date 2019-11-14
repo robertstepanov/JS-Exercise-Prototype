@@ -46,7 +46,6 @@ function Person(name, age) {
 Person.prototype.eat = function(food) {
   if (this.stomach.length <= 10) {
     return this.stomach.push(food);
-  } else {
   }
 };
 
@@ -93,19 +92,15 @@ function Baby(name, age, favoriteToy) {
   this.name = name;
   this.age = age;
   this.favoriteToy = favoriteToy;
+
+  Person.call(this, name, age);
+  this.favoriteToy;
 }
+Baby.prototype = Object.create(Person.prototype);
 
 Baby.prototype.play = function(favoriteToy) {
   return `Playing with ${this.favoriteToy}`;
 };
-
-// ------------  TROUBLE WITH INHERITANCE  --------------->
-
-// function Baby(babyAttributes) {
-//   Person.call(this, babyAttributes);
-//   this.isBaby = babyAttributes.isChild;
-// }
-// Child.prototype = Object.create(Person.prototype);
 
 /* 
   TASK 4
